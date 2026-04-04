@@ -1,34 +1,40 @@
 package inheritance;
 //Muhammad Faiz Najmuddin
 //255150707111013
-
 import java.time.LocalDate;
 import java.time.Period;
 
 public class Pekerja extends Manusia {
     private double gaji;
-    private LocalDate tahunMasuk;
+    private int tahunMasuk;
+    private int bulanMasuk;
+    private int tanggalMasuk;
     private int jumlahAnak;
 
     public Pekerja() {}
 
-    public Pekerja(String nama, boolean jenisKelamin, String nik, boolean menikah,
-                   double gaji, LocalDate tahunMasuk, int jumlahAnak) {
-        super(nama, jenisKelamin, nik, menikah);
+    public Pekerja(double gaji, int tahunMasuk, int bulanMasuk, int tanggalMasuk,
+                   int jumlahAnak, String nama, String nik,
+                   boolean jenisKelamin, boolean menikah) {
+        super(nama, nik, jenisKelamin, menikah);
         this.gaji = gaji;
         this.tahunMasuk = tahunMasuk;
+        this.bulanMasuk = bulanMasuk;
+        this.tanggalMasuk = tanggalMasuk;
         this.jumlahAnak = jumlahAnak;
     }
 
     public double getGajiPokok() { return gaji; }
     public void setGaji(double gaji) { this.gaji = gaji; }
-    public LocalDate getTahunMasuk() { return tahunMasuk; }
-    public void setTahunMasuk(LocalDate tahunMasuk) { this.tahunMasuk = tahunMasuk; }
+    public int getTahunMasuk() { return tahunMasuk; }
+    public int getBulanMasuk() { return bulanMasuk; }
+    public int getTanggalMasuk() { return tanggalMasuk; }
     public int getJumlahAnak() { return jumlahAnak; }
     public void setJumlahAnak(int jumlahAnak) { this.jumlahAnak = jumlahAnak; }
 
     public int getLamaBekerja() {
-        return Period.between(tahunMasuk, LocalDate.now()).getYears();
+        LocalDate masuk = LocalDate.of(tahunMasuk, bulanMasuk, tanggalMasuk);
+        return Period.between(masuk, LocalDate.now()).getYears();
     }
 
     public double getBonus() {
@@ -54,9 +60,9 @@ public class Pekerja extends Manusia {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(
-            "%nTahun Masuk   : %s%nLama Bekerja  : %d tahun%nJumlah Anak   : %d%nGaji Total    : $%.2f",
-            tahunMasuk.toString(), getLamaBekerja(), jumlahAnak, getGaji()
-        );
+        return super.toString() +
+               "\ntahun masuk  : " + tanggalMasuk + " " + bulanMasuk + " " + tahunMasuk +
+               "\njumlah anak  : " + jumlahAnak +
+               "\ngaji         : " + gaji;
     }
 }
