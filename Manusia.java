@@ -1,28 +1,26 @@
 package inheritance;
 //Muhammad Faiz Najmuddin
 //255150707111013
-
 public class Manusia {
     private String nama;
-    private boolean jenisKelamin;
     private String nik;
+    private boolean jenisKelamin;
     private boolean menikah;
 
     public Manusia() {}
-
-    public Manusia(String nama, boolean jenisKelamin, String nik, boolean menikah) {
+    public Manusia(String nama, String nik, boolean jenisKelamin, boolean menikah) {
         this.nama = nama;
-        this.jenisKelamin = jenisKelamin;
         this.nik = nik;
+        this.jenisKelamin = jenisKelamin;
         this.menikah = menikah;
     }
 
     public String getNama() { return nama; }
     public void setNama(String nama) { this.nama = nama; }
-    public boolean isJenisKelamin() { return jenisKelamin; }
-    public void setJenisKelamin(boolean jenisKelamin) { this.jenisKelamin = jenisKelamin; }
     public String getNik() { return nik; }
     public void setNik(String nik) { this.nik = nik; }
+    public boolean isJenisKelamin() { return jenisKelamin; }
+    public void setJenisKelamin(boolean jenisKelamin) { this.jenisKelamin = jenisKelamin; }
     public boolean isMenikah() { return menikah; }
     public void setMenikah(boolean menikah) { this.menikah = menikah; }
 
@@ -39,11 +37,9 @@ public class Manusia {
 
     @Override
     public String toString() {
-        return String.format(
-            "Nama          : %s%nNIK           : %s%nJenis Kelamin : %s%nPendapatan    : $%.2f",
-            nama, nik,
-            jenisKelamin ? "Laki-laki" : "Perempuan",
-            getPendapatan()
-        );
+        return "nama         : " + nama +
+               "\nnik          : " + nik +
+               "\njenisKelamin : " + (jenisKelamin ? "Laki-laki" : "Perempuan") +
+               "\npendapatan   : " + getPendapatan();
     }
 }
