@@ -1,16 +1,14 @@
 package inheritance;
 //Muhammad Faiz Najmuddin
 //255150707111013
-
 public class MahasiswaFILKOM extends Manusia {
     private String nim;
     private double ipk;
 
     public MahasiswaFILKOM() {}
-
-    public MahasiswaFILKOM(String nama, boolean jenisKelamin, String nik, boolean menikah,
-                            String nim, double ipk) {
-        super(nama, jenisKelamin, nik, menikah);
+    public MahasiswaFILKOM(String nim, double ipk, String nama, String nik,
+                            boolean jenisKelamin, boolean menikah) {
+        super(nama, nik, jenisKelamin, menikah);
         this.nim = nim;
         this.ipk = ipk;
     }
@@ -49,9 +47,9 @@ public class MahasiswaFILKOM extends Manusia {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(
-            "%nNIM           : %s%nIPK           : %.2f%nStatus        : %s",
-            nim, ipk, getStatus()
-        );
+        return super.toString() +
+               "\nnim          : " + nim +
+               "\nipk          : " + ipk +
+               "\nstatus       : " + getStatus();
     }
 }
