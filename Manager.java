@@ -1,17 +1,14 @@
 package inheritance;
 //Muhammad Faiz Najmuddin
 //255150707111013
-
-import java.time.LocalDate;
-
 public class Manager extends Pekerja {
     private String departemen;
-
     public Manager() {}
 
-    public Manager(String nama, boolean jenisKelamin, String nik, boolean menikah,
-                   double gaji, LocalDate tahunMasuk, int jumlahAnak, String departemen) {
-        super(nama, jenisKelamin, nik, menikah, gaji, tahunMasuk, jumlahAnak);
+    public Manager(String departemen, double gaji, int tahunMasuk, int bulanMasuk,
+                   int tanggalMasuk, int jumlahAnak, String nama, String nik,
+                   boolean jenisKelamin, boolean menikah) {
+        super(gaji, tahunMasuk, bulanMasuk, tanggalMasuk, jumlahAnak, nama, nik, jenisKelamin, menikah);
         this.departemen = departemen;
     }
 
@@ -25,6 +22,7 @@ public class Manager extends Pekerja {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("%nDepartemen    : %s", departemen);
+        return super.toString() +
+               "\ndepartemen   : " + departemen;
     }
 }
